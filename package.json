@@ -1,0 +1,31 @@
+{
+  "name": "ico-concept-indexer",
+  "version": "1.0.0",
+  "description": "Fetch whitepapers, concept documents, and other information and add them to Elastic Search",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jitinp/ico-concept-indexer.git"
+  },
+  "keywords": [
+    "ICO",
+    "Blockchain",
+    "Elastic",
+    "Search",
+    "AWS",
+    "Elastic",
+    "Search"
+  ],
+  "author": "Jitin Pillai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jitinp/ico-concept-indexer/issues"
+  },
+  "homepage": "https://github.com/jitinp/ico-concept-indexer#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
+}
