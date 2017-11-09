@@ -1,4 +1,4 @@
-{
+[{
 	"name": "AppTrade",
 	"symbol": "APPX",
 	"url": "https://tokenmarket.net/blockchain/blockchain/assets/apptrade/",
@@ -11226,4 +11226,4 @@
 		"slack": "https://hiveprojectnet.slack.com/"
 	},
 	"oneLiner": "Currency invoice financing platform"
-},
+}]
