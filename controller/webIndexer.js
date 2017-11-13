@@ -1,5 +1,6 @@
 var request = require('request');
 var fs = require('fs');
+var elasticClient = require('./elasticsearch.js');
 
 module.exports = {
 
