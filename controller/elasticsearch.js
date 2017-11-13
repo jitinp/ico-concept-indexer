@@ -11,7 +11,7 @@ let options = {
 var elasticClient = new elasticsearch.Client(options);
 
 
-var indexName = 'books';
+var indexName = 'ico';
 
 function indexExists() {
     return elasticClient.indices.exists({
@@ -37,10 +37,10 @@ exports.deleteIndex = deleteIndex;
 function initMapping() {
     return elasticClient.indices.putMapping({
         index: indexName,
-        type: 'book',
+        type: 'ico',
         body: {
             properties: {
-                title: { type: 'string' },
+                symbol: { type: 'string' },
                 suggest: {
                     type: 'completion',
                     analyzer: 'simple',
@@ -53,26 +53,26 @@ function initMapping() {
 }
 exports.initMapping = initMapping;
 
-function addBook(book) {
+function addIco(ico) {
     return elasticClient.index({
-        index: indexName,
-        type: 'book',
+        index: 'ico',
+        id: '1',
+        type: 'upcoming',
         body: {
-            title: book.title,
-            suggest: {
-                input: book.title.split(' '),
-                output: book.title,
-                payload: book.metadata || {}
-            }
+            "ConstituencyName": "Ipswich",
+            "ConstituencyID": "E14000761",
+            "ConstituencyType": "Borough",
+            "Electorate": 74499,
+            "ValidVotes": 48694
         }
     });
 }
-exports.addBook = addBook;
+exports.addico = addIco;
 
 function getSuggestions(input) {
     return elasticClient.suggest({
         index: indexName,
-        type: 'book',
+        type: 'ico',
         body: {
             docsuggest: {
                 text: input,
