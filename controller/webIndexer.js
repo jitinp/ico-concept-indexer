@@ -46,10 +46,7 @@ module.exports = {
 
                 // console.log(data);
                 // fs.appendFileSync('test/results.json', JSON.stringify(data) + ",\n");
-                es.addDocument(index, data).then(function (created) {
-                    console.log('Entry Created' + created);
-                });
-
+                es.addDocument(index, data);
             }
         });
         return;

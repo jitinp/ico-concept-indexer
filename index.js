@@ -15,19 +15,19 @@ var index = 'ico';
 // });
 
 // Create Index and Mapping
-es.indexExists(index).then(function (exists) {
-    if(!exists)
-       return es.createIndex(index);
-}).then(function () {
-    return es.createMapping(index);
-}).then(function () {
-    console.log('Index and Mapping Created');
-});
+// es.indexExists(index).then(function (exists) {
+//     if(!exists)
+//        return es.createIndex(index);
+// }).then(function () {
+//     return es.createMapping(index);
+// }).then(function () {
+//     console.log('Index and Mapping Created');
+// });
 
 icoList.forEach(function (item) {
    var url = String(item.links.website);
    var id = item.symbol;
    var concept = item.concept;
    // console.log(url);
-   // webIndex.index(es, index, id, url, concept);
+   webIndex.index(es, index, id, url, concept);
 });

@@ -69,6 +69,8 @@ function addDocument(indexName, ico) {
             html: ico.html,
             whitepaper: ""
         }
+    }, function(err,resp,status) {
+        console.log("resp\n" + resp);
     });
 }
 exports.addDocument = addDocument;
