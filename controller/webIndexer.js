@@ -1,10 +1,10 @@
 var request = require('request');
 var fs = require('fs');
-var elasticClient = require('./elasticsearch.js');
+// var es = require('./elasticsearch.js');
 
 module.exports = {
 
-    index: function (id, url, concept) {
+    index: function (es, index, id, url, concept) {
 
         // Sample data-structure for indexing values
         // data = {
@@ -25,11 +25,12 @@ module.exports = {
 
         request(url, function (error, response, html) {
             if (!error && response.statusCode == 200) {
-                console.log(html);
+                // console.log(html);
 
                 var data = {};
 
                 data.id = id;
+                data.name = id;
                 data.concept = concept;
 
                 var contents = {
@@ -40,11 +41,14 @@ module.exports = {
                 var contentsArr = [];
                 contentsArr.push(contents);
 
-                data.contents = contentsArr;
+                // data.contents = contentsArr;
+                data.html = html;
 
-                console.log(data);
-                fs.appendFileSync('test/results.json', JSON.stringify(data) + ",\n");
-
+                // console.log(data);
+                // fs.appendFileSync('test/results.json', JSON.stringify(data) + ",\n");
+                es.addDocument(index, data).then(function (created) {
+                    console.log('Entry Created' + created);
+                });
 
             }
         });
